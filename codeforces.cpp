@@ -1,15 +1,15 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
 int main() {
-    int n;
-    cin >> n;
-    if(n % 2 == 0 && n > 2) {
-        cout << "Yes" << endl;
+    vector<int> nums = {4,1,2,1,2};
+    int ans=0;
+	for(auto x:nums) {
+        cout << ans;
+	    ans^=x;
     }
-    else {
-        cout << "NO" << endl;
-    }
+    cout << ans;
     return 0;
 }
