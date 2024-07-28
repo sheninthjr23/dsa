@@ -1,22 +1,24 @@
 #include<iostream>
-#include<cmath>
+#include<algorithm>
 
 using namespace std;
 
 int main() {
-    int n;
-    cin >> n;
-    int sum = 0;
-    for(int i = 0;i < n;i++) {
-        string s;   
-        cin >> s;
-        if (s[1] == '+') {
-            ++sum;
-        }
-        else {
-            --sum;
-        }
+    string s;
+    cin >> s;
+    int n = s.size();
+    int i = n - 2;
+    while(i >= 0 && s[i] >= s[i+1]) {
+        i--;
     }
-    cout << sum << endl;
+    if(i >= 0) {
+        int j = n - 1;
+        while(s[j] <= s[i]) {
+            j--;
+        }
+        swap(s[i],s[j]);
+    }
+    reverse(s.begin()+i+1,s.end());
+    cout << s << endl;
     return 0;
 }
